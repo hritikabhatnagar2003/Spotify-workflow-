@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Environment secrets
+.env
+
+# SQLite database
+data/raw/reviews.db
+
+# Generated outputs
+data/outputs/
+
+# Logs
+*.log
+
+# OS artifacts
+.DS_Store
+Thumbs.db

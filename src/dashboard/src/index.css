@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --spotify-green: #1DB954;
+  --spotify-green-hover: #1ed760;
+  --bg-base: #121212;
+  --bg-elevated: #181818;
+  --bg-highlight: #282828;
+  --text-base: #FFFFFF;
+  --text-subdued: #a7a7a7;
+  --card-glass: rgba(24, 24, 24, 0.7);
+  --card-border: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  /* Premium subtle background gradient */
+  background: radial-gradient(circle at top left, #232323 0%, var(--bg-base) 40%);
+}
+
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header Styles */
+.dashboard-header {
+  margin-bottom: 3rem;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-subtitle {
+  color: var(--text-subdued);
+  font-size: 1.1rem;
+}
+
+/* Stats Section */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background: var(--card-glass);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  background: var(--bg-highlight);
+}
+
+.stat-label {
+  color: var(--text-subdued);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--spotify-green);
+}
+
+/* Insights Grid */
+.insights-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--bg-highlight);
+  padding-bottom: 1rem;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.insight-card {
+  background: var(--bg-elevated);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.insight-card:hover {
+  background: #1f1f1f;
+  border-color: rgba(29, 185, 84, 0.3);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.insight-theme {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.impact-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.impact-high { background: rgba(255, 75, 75, 0.2); color: #ff6b6b; }
+.impact-medium { background: rgba(255, 171, 0, 0.2); color: #ffb700; }
+.impact-low { background: rgba(29, 185, 84, 0.2); color: var(--spotify-green); }
+
+.insight-finding {
+  font-size: 1rem;
+  color: var(--text-base);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.insight-quotes {
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid var(--spotify-green);
+}
+
+.quote {
+  font-style: italic;
+  color: var(--text-subdued);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+.quote:last-child { margin-bottom: 0; }
+
+.insight-recommendation {
+  margin-top: auto;
+  background: rgba(29, 185, 84, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.rec-label {
+  font-size: 0.75rem;
+  color: var(--spotify-green);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.rec-text {
+  font-size: 0.95rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Loading State */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  flex-direction: column;
+}
+
+.loader {
+  border: 4px solid var(--bg-highlight);
+  border-top: 4px solid var(--spotify-green);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,20 @@
+{
+  "targets": [
+    {
+      "platform": "appstore",
+      "label": "Spotify — Apple App Store (US)",
+      "url": "https://apps.apple.com/us/app/spotify-music-and-podcasts/id324684580",
+      "appId": "324684580",
+      "maxReviews": 500
+    },
+    {
+      "platform": "playstore",
+      "label": "Spotify — Google Play Store (IN/GB)",
+      "url": "https://play.google.com/store/apps/details?id=com.spotify.music&hl=en-GB&gl=IN",
+      "appId": "com.spotify.music",
+      "maxReviews": 500
+    }
+  ],
+  "scraper": "direct",
+  "note": "No API key required. Uses google-play-scraper and app-store-scraper npm packages."
+}
