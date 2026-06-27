@@ -12,9 +12,11 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+        
         const [statsRes, insightsRes] = await Promise.all([
-          fetch('http://localhost:3001/api/stats'),
-          fetch('http://localhost:3001/api/insights')
+          fetch(`${API_BASE_URL}/api/stats`),
+          fetch(`${API_BASE_URL}/api/insights`)
         ]);
 
         if (!statsRes.ok || !insightsRes.ok) {
